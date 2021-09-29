@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:mdapp/body-widget.dart';
+import 'package:mdapp/create.widget.dart';
 
 void main() => runApp(MyApp());
 
@@ -15,10 +16,12 @@ class MyApp extends StatelessWidget {
           child: Column(
             children: <Widget>[
               UserAccountsDrawerHeader(
-                currentAccountPicture: CircleAvatar(child: Text('P'),),
+                currentAccountPicture: CircleAvatar(
+                  child: Text('P'),
+                ),
                 accountEmail: Text('panjos@gmail.com'),
                 accountName: Text('Panjos'),
-              ),//DrawerHeader()
+              ), //DrawerHeader()
               ListTile(
                 leading: Icon(Icons.home),
                 title: Text('Home'),
@@ -68,8 +71,10 @@ class MyApp extends StatelessWidget {
               icon: Icon(Icons.home),
             ),
             BottomNavigationBarItem(
-              label: 'Home',
-              icon: Icon(Icons.home),
+              label: 'Add',
+              icon: Icon(
+                Icons.add,
+              ),
             ),
           ],
         ),

@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:mdapp/create.widget.dart';
 
 class BodyWidget extends StatefulWidget {
   @override
@@ -9,7 +10,17 @@ class _BodyWidgetState extends State<BodyWidget> {
   @override
   Widget build(BuildContext context) {
     return Center(
-      child: Text('Hello World'),
+      child: ElevatedButton(
+        child: Text('Create'),
+        onPressed: () {
+          Navigator.push(
+            context,
+            MaterialPageRoute(builder: (BuildContext context) {
+              return CreateWidget();
+            }),
+          );
+        },
+      ),
     );
   }
 }
