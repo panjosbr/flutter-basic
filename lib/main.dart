@@ -5,6 +5,7 @@ import 'package:mdapp/create.widget.dart';
 void main() => runApp(MyApp());
 
 class MyApp extends StatelessWidget {
+  GlobalKey<ScaffoldState> _scaffoldKey = GlobalKey<ScaffoldState>();
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
@@ -12,6 +13,7 @@ class MyApp extends StatelessWidget {
         primarySwatch: Colors.red,
       ),
       home: Scaffold(
+        key: _scaffoldKey,
         drawer: Drawer(
           child: Column(
             children: <Widget>[
@@ -54,8 +56,29 @@ class MyApp extends StatelessWidget {
             child: Text('Panjos'),
           ),
           actions: <Widget>[
-            IconButton(
-                icon: Icon(Icons.notification_important), onPressed: () {}),
+            // current snackbar in context the scaffold
+            Builder(
+              builder: (BuildContext context) {
+                return IconButton(
+                    icon: Icon(Icons.notification_important),
+                    onPressed: () {
+                      ScaffoldMessenger.of(context).showSnackBar(
+                        const SnackBar(
+                          content: Text('Scaffold snackbar'),
+                        ),
+                      );
+                    });
+              },
+            ),
+            // IconButton(
+            //   icon: Icon(Icons.notification_important),
+            //   onPressed: () {
+            //     //old snack bar
+            //     final snackbar =
+            //         SnackBar(content: Text('Test Snackbar notification'));
+            //     _scaffoldKey.currentState.showSnackBar(snackbar);
+            //   },
+            // ),
             IconButton(icon: Icon(Icons.settings), onPressed: () {}),
           ],
         ),

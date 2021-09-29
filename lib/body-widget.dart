@@ -9,18 +9,23 @@ class BodyWidget extends StatefulWidget {
 class _BodyWidgetState extends State<BodyWidget> {
   @override
   Widget build(BuildContext context) {
-    return Center(
-      child: ElevatedButton(
-        child: Text('Create'),
-        onPressed: () {
-          Navigator.push(
-            context,
-            MaterialPageRoute(builder: (BuildContext context) {
-              return CreateWidget();
-            }),
-          );
-        },
-      ),
+    return Column(
+      mainAxisAlignment: MainAxisAlignment.center,
+      children: [
+        Center(
+          child: ElevatedButton(
+            child: Text('Create'),
+            onPressed: () {
+              Navigator.push(
+                context,
+                MaterialPageRoute(builder: (BuildContext context) {
+                  return CreateWidget();
+                }),
+              );
+            },
+          ),
+        ),
+      ],
     );
   }
 }

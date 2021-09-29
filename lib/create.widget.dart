@@ -14,7 +14,22 @@ class _CreateWidgetState extends State<CreateWidget> {
       appBar: AppBar(
         title: Text('Create Page'),
       ),
-      body: Center(child: Text('Welcome to create page'),),
+      body: Column(
+        children: [
+          Center(child: Text('Welcome to create page'),),
+          ElevatedButton(
+            child: Text('Snackbar'),
+            onPressed: () {
+              // new snackbar
+              ScaffoldMessenger.of(context).showSnackBar(
+                  const SnackBar(
+                    content: Text('child widget snackbar'),
+                  ),
+                );
+            },
+          ),
+        ],
+      ),
     );
   }
 }
