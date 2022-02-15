@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:mdapp/create.widget.dart';
 
+import 'animations.widget.dart';
+
 class BodyWidget extends StatefulWidget {
   @override
   _BodyWidgetState createState() => _BodyWidgetState();
@@ -20,6 +22,19 @@ class _BodyWidgetState extends State<BodyWidget> {
                 context,
                 MaterialPageRoute(builder: (BuildContext context) {
                   return CreateWidget();
+                }),
+              );
+            },
+          ),
+        ),
+        Center(
+          child: ElevatedButton(
+            child: Text('Animations'),
+            onPressed: () {
+              Navigator.push(
+                context,
+                MaterialPageRoute(builder: (BuildContext context) {
+                  return AnimationsWidget();
                 }),
               );
             },
