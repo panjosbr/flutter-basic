@@ -17,14 +17,13 @@ class _AnimationControllerWidgetState extends State<AnimationControllerWidget>
   Animation<double> animationOpacityForgotPassword;
   Animation<double> animationButtonSignInWidth;
   Animation<double> animationButtunCircular;
-  Animation<bool> animationLoader;
 
   @override
   void initState() {
     super.initState();
 
     animationController = AnimationController(
-      duration: Duration(milliseconds: 400),
+      duration: Duration(milliseconds: 1000),
       vsync: this,
     );
   }
@@ -32,18 +31,61 @@ class _AnimationControllerWidgetState extends State<AnimationControllerWidget>
   @override
   void didChangeDependencies() {
     super.didChangeDependencies();
-    animationUserName =
-        Tween<double>(begin: 0, end: 470).animate(animationController);
-    animationPassword =
-        Tween<double>(begin: 0, end: -470).animate(animationController);
-    animationOpacityForgotPassword =
-        Tween<double>(begin: 1, end: 0).animate(animationController);
+    animationUserName = Tween<double>(begin: 0, end: 470).animate(
+      CurvedAnimation(
+        parent: animationController,
+        curve: Interval(
+          0,
+          0.5,
+          curve: Curves.fastOutSlowIn,
+        ),
+      ),
+    );
+    animationPassword = Tween<double>(begin: 0, end: -470).animate(
+      CurvedAnimation(
+        parent: animationController,
+        curve: Interval(
+          0,
+          0.5,
+          curve: Curves.fastOutSlowIn,
+        ),
+      ),
+    );
+
+    animationOpacityForgotPassword = Tween<double>(begin: 1, end: 0).animate(
+      CurvedAnimation(
+        parent: animationController,
+        curve: Interval(
+          0.5,
+          1,
+          curve: Curves.easeInOutCirc,
+        ),
+      ),
+    );
+
     animationButtonSignInWidth =
-        Tween<double>(begin: MediaQuery.of(context).size.width, end: 50).animate(animationController);
-    animationButtunCircular =
-        Tween<double>(begin: 8, end: 40).animate(animationController);
-    animationLoader =
-        Tween<bool>(begin: false, end: true).animate(animationController);
+        Tween<double>(begin: MediaQuery.of(context).size.width, end: 50)
+            .animate(
+      CurvedAnimation(
+        parent: animationController,
+        curve: Interval(
+          0,
+          0.4,
+          curve: Curves.easeInOutCirc,
+        ),
+      ),
+    );
+
+    animationButtunCircular = Tween<double>(begin: 8, end: 40).animate(
+      CurvedAnimation(
+        parent: animationController,
+        curve: Interval(
+          0,
+          0.4,
+          curve: Curves.easeInOutCirc,
+        ),
+      ),
+    );
   }
 
   @override
