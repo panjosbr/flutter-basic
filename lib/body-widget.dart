@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:mdapp/animation-controller-widget.dart';
 import 'package:mdapp/create.widget.dart';
 
 import 'animations.widget.dart';
@@ -27,6 +28,7 @@ class _BodyWidgetState extends State<BodyWidget> {
             },
           ),
         ),
+        SizedBox(height: 30,),
         Center(
           child: ElevatedButton(
             child: Text('Animations'),
@@ -40,6 +42,21 @@ class _BodyWidgetState extends State<BodyWidget> {
             },
           ),
         ),
+        SizedBox(height: 30,),
+        Center(
+          child: ElevatedButton(
+            child: Text('Animations Controller'),
+            onPressed: () {
+              Navigator.push(
+                context,
+                MaterialPageRoute(builder: (BuildContext context) {
+                  return AnimationControllerWidget();
+                }),
+              );
+            },
+          ),
+        ),
+        
       ],
     );
   }
